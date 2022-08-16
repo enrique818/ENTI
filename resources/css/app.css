@@ -1,0 +1,168 @@
+.linear-bg {
+	background: #757F9A;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #D7DDE8, #757F9A);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #D7DDE8, #757F9A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.twitter-btn {
+	border: 1px solid #00ACEE !important;
+}
+.twitter-btn i {
+	transition: color .15s ease-in-out;
+	color: #00ACEE;
+}
+.twitter-btn:hover i {
+	color: #fff;
+}
+.twitter-btn:hover {
+	background: #00ACEE;
+}
+
+.tiktok-btn {
+	border: 1px solid #69C9D0 !important;
+}
+.tiktok-btn i {
+	transition: color .15s ease-in-out;
+	color: #69C9D0;
+}
+.tiktok-btn:hover i {
+	color: #fff;
+}
+.tiktok-btn:hover {
+	background: #69C9D0;
+}
+
+.facebook-btn {
+	border: 1px solid #4267B2 !important;
+}
+.facebook-btn i {
+	transition: color .15s ease-in-out;
+	color: #4267B2;
+}
+.facebook-btn:hover i {
+	color: #fff;
+}
+.facebook-btn:hover {
+	background: #4267B2;
+}
+
+.instagram-btn {
+	border: 1px solid #cd486b !important;
+}
+.instagram-btn i {
+	transition: color .15s ease-in-out;
+	color: #cd486b;
+}
+.instagram-btn:hover i {
+	color: #fff;
+}
+.instagram-btn:hover {
+	background: #cd486b;
+}
+
+.linkedin-btn {
+	border: 1px solid #0E77A8 !important;
+}
+.linkedin-btn i {
+	transition: color .15s ease-in-out;
+	color: #0E77A8;
+}
+.linkedin-btn:hover i {
+	color: #fff;
+}
+.linkedin-btn:hover {
+	background: #0E77A8;
+}
+
+.youtube-btn {
+	border: 1px solid #FF0000 !important;
+}
+.youtube-btn i {
+	transition: color .15s ease-in-out;
+	color: #FF0000;
+}
+.youtube-btn:hover i {
+	color: #fff;
+}
+.youtube-btn:hover {
+	background: #FF0000;
+}
+
+.text-morado {
+	color: #38076D;
+}
+.text-rosa {
+	color: #E93093;
+}
+.text-azul {
+	color: #02ABEC;
+}
+
+.bg-morado {
+	background: #38076D;
+}
+.bg-rosa {
+	background: #E93093;
+}
+.bg-azul {
+	background: #02ABEC;
+}
+
+.landing-dark-bg {
+    background-color: #38076D;
+}
+.landing-dark-color {
+    color: #38076D;
+}
+.btn.btn-rosa {
+    color: #fff;
+    border-color: #E93093;
+    background-color: #E93093;
+}
+.btn-check:active+.btn.btn-rosa, .btn-check:checked+.btn.btn-rosa, .btn.btn-rosa.active, .btn.btn-rosa.show, .btn.btn-rosa:active:not(.btn-active), .btn.btn-rosa:focus:not(.btn-active), .btn.btn-rosa:hover:not(.btn-active), .show>.btn.btn-rosa {
+    color: #fff;
+    border-color: #c42178;
+    background-color: #c42178!important;
+}
+.btn-outline-rosa {
+    color: #E93093;
+    border-color: #E93093;
+}
+.btn-check:active+.btn-outline-rosa, .btn-check:checked+.btn-outline-rosa, .btn-outline-rosa.active, .btn-outline-rosa.dropdown-toggle.show, .btn-outline-rosa:active {
+    color: #000;
+    background-color: #c42178;
+    border-color: #c42178;
+}
+.btn-outline-rosa:hover {
+    color: #000;
+    background-color: #c42178;
+    border-color: #c42178;
+}
+.badge-light-rosa {
+    color: #c42178;
+    background-color: #fadeed;
+}
+.stepper.stepper-pills .stepper-item.current .stepper-icon {
+    background-color: #E93093;
+}
+.stepper.stepper-pills .stepper-item .stepper-icon {
+    background-color: #fadeed;
+}
+.stepper.stepper-pills .stepper-item .stepper-icon .stepper-number {
+    color: #c42178!important;
+}
+.stepper.stepper-pills .stepper-item.completed .stepper-icon, .stepper.stepper-pills .stepper-item.current:last-child .stepper-icon {
+    background-color: #fadeed;
+}
+.stepper.stepper-pills .stepper-item.completed .stepper-icon .stepper-check, .stepper.stepper-pills .stepper-item.current:last-child .stepper-icon .stepper-check {
+    color: #c42178!important;
+}
+.btn.btn-light-rosa {
+    color: #c42178;
+    border-color: #fadeed;
+    background-color: #fadeed;
+}
+.btn-check:active+.btn.btn-light-rosa, .btn-check:checked+.btn.btn-light-rosa, .btn.btn-light-rosa.active, .btn.btn-light-rosa.show, .btn.btn-light-rosa:active:not(.btn-active), .btn.btn-light-rosa:focus:not(.btn-active), .btn.btn-light-rosa:hover:not(.btn-active), .show>.btn.btn-light-rosa {
+    color: #fff;
+    border-color: #c42178;
+    background-color: #c42178!important;
+}
