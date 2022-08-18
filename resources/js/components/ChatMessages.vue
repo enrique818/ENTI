@@ -1,6 +1,6 @@
 <template>
     <div class="scroll-y me-n5 pe-5 h-300px h-lg-auto" data-kt-element="messages" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_header, #kt_toolbar, #kt_footer, #kt_chat_messenger_header, #kt_chat_messenger_footer" data-kt-scroll-wrappers="#kt_content, #kt_chat_messenger_body" data-kt-scroll-offset="5px">
-        <div v-bind:class="[message.chat['user_'+message.sender].id == user.id ? 'justify-content-end' : 'justify-content-start']" class="d-flex mb-10" v-for="message in messages">
+        <div v-bind:class="[message.chat['user_'+message.sender].id == user.id ? 'justify-content-end' : 'justify-content-start']" class="d-flex mb-10" v-for="message in messages" :key="message">
             <div class="d-flex flex-column" v-bind:class="[message.chat['user_'+message.sender].id == user.id ? 'align-items-end' : 'align-items-start']" >
                 <div  class="d-flex align-items-center mb-2 " v-bind:class="[message.chat['user_'+message.sender].id == user.id ? ' flex-row-reverse' : 'flex-row']">
                     <div class="symbol symbol-35px symbol-circle">

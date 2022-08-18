@@ -232,8 +232,9 @@
 							<option @if(auth()->user()->fundador == "si") selected @endif value="si">Si</option>
 							<option @if(auth()->user()->fundador == "no") selected @endif value="no">No</option>
 						</x-slot>
-					</x-select>
-					@elseif (auth()->user()->perfil == 'inversionista')
+					</x-select>					
+						<x-input  name="precio" label="Valor de la oferta" placeholder="Ingresa valor de la oferta" :required="false" :value="auth()->user()->precio"/>
+							@elseif (auth()->user()->perfil == 'inversionista')
 					<div class="row px-3">
 						<h5>Tipo de Formación (puedes seleccionar mas de una opción)</h5>
 						<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">

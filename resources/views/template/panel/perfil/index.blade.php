@@ -243,6 +243,12 @@
 						<p class="fw-bolder">{{$user->fundador}}</p>
 					</div>
 					@endif
+					@if($user->precio != '')
+					<div class="mt-4">
+						<h3 class="text-muted">El valor ofertado es:</h3>
+						<p class="fw-bolder">{{$user->precio}}</p>
+					</div>
+					@endif
 				@endif
 				@if($user->perfil == 'inversionista')
 					<div class="row px-3">

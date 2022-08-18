@@ -43,6 +43,7 @@ class StoreUserInformationRequest extends FormRequest
             'fundador' => 'nullable|in:si,no',
             'formacion' => 'nullable|array',
             'engagement' => 'nullable|numeric',
+            'precio' => 'nullable|min:1|max:255',
             'seguidores' => 'nullable|in:20,50,100,250,mas',
         ];
     }

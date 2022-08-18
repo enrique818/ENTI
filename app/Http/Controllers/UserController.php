@@ -83,7 +83,7 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        $data = $request->only(['nombre', 'email', 'password', 'perfil', 'pais', 'estado']);
+        $data = $request->only(['nombre', 'email', 'password', 'perfil', 'pais', 'estado','precio']);
 
         if ($data['perfil'] == 'startup' || $data['perfil'] == 'influencer' || $data['perfil'] == 'expertos') {
             $data['industria_id'] = $request->input('industria_id');
@@ -104,6 +104,7 @@ class UserController extends Controller
         }
 
         $influencercont = $request->input('seguidores');
+        $precio = $request->input('precio');       
         
        $data['first_reg']  = 0;
         $data['password'] = Hash::make($data['password']);
@@ -348,6 +349,8 @@ class UserController extends Controller
         foreach ($request->input('social_platform')??[] as $key => $value) {
             $data['social_platform'] += $value;
         }
+        $precio = $request->input('precio');
+        
         $user->fill($data)->save();
         return response()->json([
             'message' => 'Los datos se han modificado correctamente'
