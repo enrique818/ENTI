@@ -163,6 +163,16 @@
 						</div>
 					</div>
 				</div>
+				@if($user->perfil == 'startup')
+				<div class="d-flex my-1">
+					<a href=""  class="btn btn-sm btn-light-danger" style="width: 18%">Proyectos en Marcha</a>
+				</div>
+				@endif
+				@if($user->perfil == 'mentores' || $user->perfil == 'expertos')
+				<div class="d-flex my-1">
+					<a href=""  class="btn btn-sm btn-light-danger" style="width: 18%">Proyectos en Marcha</a>
+				</div>
+				@endif
 				@if($user->descripcion != '')
 				<div class="mt-4">
 					<h3 class="text-muted">Acerca de mi</h3>
