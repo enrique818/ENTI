@@ -83,7 +83,7 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        $data = $request->only(['nombre', 'email', 'password', 'perfil', 'pais', 'estado','precio']);
+        $data = $request->only(['nombre', 'email', 'password', 'perfil', 'pais', 'estado','precio','equipo','ventas','capital_institucional','prestamo_financiero','experiencia','fundador','engagement','seguidores']);
 
         if ($data['perfil'] == 'startup' || $data['perfil'] == 'influencer' || $data['perfil'] == 'expertos') {
             $data['industria_id'] = $request->input('industria_id');
@@ -91,8 +91,20 @@ class UserController extends Controller
         
         if ($data['perfil'] =='expertos'){
             $data['experticia'] = 0;
-            foreach ($request->input('experticy')??[] as $key => $value) {
+            foreach ($request->input('experticia')??[] as $key => $value) {
                 $data['experticia'] += $value;
+            }
+        }
+        if ($data['perfil'] =='firma'){
+            $data['tipo_capital'] = 0;
+            foreach ($request->input('tipo_capital')??[] as $key => $value) {
+                $data['tipo_capital'] += $value;
+            }
+        }
+        if ($data['perfil'] =='inversionista'){
+            $data['formacion'] = 0;
+            foreach ($request->input('formacion')??[] as $key => $value) {
+                $data['formacion'] += $value;
             }
         }
 
@@ -102,9 +114,22 @@ class UserController extends Controller
                 $data['socials_influencers'] += $value;
             }
         }
+        if ($data['perfil'] =='influencer'){
+            $data['social_platform'] = 0;
+            foreach ($request->input('social_platform')??[] as $key => $value) {
+                $data['social_platform'] += $value;
+            }
+        }
 
-        $influencercont = $request->input('seguidores');
-        $precio = $request->input('precio');       
+        $seguidores = $request->input('seguidores');
+        $precio = $request->input('precio');    
+        $equipo = $request->input('equipo');   
+        $ventas = $request->input('ventas');
+        $capital_institucional = $request->input('capital_institucional');
+        $prestamo_financiero = $request->input('prestamo_financiero');
+        $experiencia = $request->input('experiencia');
+        $fundador = $request->input('fundador');
+        $engagement = $request->input('engagement');       
         
        $data['first_reg']  = 0;
         $data['password'] = Hash::make($data['password']);
@@ -240,12 +265,12 @@ class UserController extends Controller
         $prestamo_financiero = $request->input('prestamo_financiero');
         $equipo = $request->input('equipo');
         $experiencia = $request->input('experiencia');
-        $experticia = $request->input('experticy');
         $fundador = $request->input('fundador');
         $seguidores = $request->input('seguidores');
         $tipo_capital = $request->input('tipo_capital')??[];
         $formacion = $request->input('formacion')??[];
         $social_platform = $request->input('social_platform')??[];
+        $experticia = $request->input('experticia')??[];
         if ($pais!= 'Todos') {
             $usuarios = $usuarios->where('pais', $pais);
         }
@@ -314,6 +339,22 @@ class UserController extends Controller
                 }
             }
         }
+        if ($perfil == 'expertos') {
+            if (count($experticia) > 0) {
+                foreach ($usuarios as $key => $usuario) {
+                    $ok = false;
+                    foreach ($experticia as $value) {
+                        if ($usuario->experticia & $value) {
+                            $ok = true;
+                            break;
+                        }
+                    }
+                    if (!$ok) {
+                        unset($usuarios[$key]);
+                    }
+                }
+            }
+        }
         if ($perfil == 'inversionista') {
             if (count($formacion) > 0) {
                 foreach ($usuarios as $key => $usuario) {
@@ -349,6 +390,11 @@ class UserController extends Controller
         foreach ($request->input('social_platform')??[] as $key => $value) {
             $data['social_platform'] += $value;
         }
+        $data['experticia'] = 0;
+        foreach ($request->input('experticia')??[] as $key => $value) {
+            $data['experticia'] += $value;
+        }
+        
         $precio = $request->input('precio');
         
         $user->fill($data)->save();

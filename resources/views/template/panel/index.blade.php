@@ -216,7 +216,71 @@
 						    </span>
 						</label>
 					</div>
-					@elseif (auth()->user()->perfil == 'mentores' || auth()->user()->perfil == 'expertos')
+					@elseif (auth()->user()->perfil == 'expertos')
+					<div class="row px-3">
+						<h5>Tipo de Experticia (puedes seleccionar mas de una opción)</h5>
+						<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
+						    <input @if(auth()->user()->experticia & 1) checked @endif name="experticia[]" class="form-check-input" type="checkbox" value="1"/>
+						    <span class="form-check-label">
+						        {{__('categorias.experticia.1')}}
+						    </span>
+						</label>
+						<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
+						    <input @if(auth()->user()->experticia & 2) checked @endif name="experticia[]" class="form-check-input" type="checkbox" value="2"/>
+						    <span class="form-check-label">
+								{{__('categorias.experticia.2')}}
+						    </span>
+						</label>
+						<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
+						    <input @if(auth()->user()->experticia & 4) checked @endif name="experticia[]" class="form-check-input" type="checkbox" value="4"/>
+						    <span class="form-check-label">
+								{{__('categorias.experticia.4')}}
+
+						    </span>
+						</label>
+						<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
+						    <input @if(auth()->user()->experticia & 8) checked @endif name="experticia[]" class="form-check-input" type="checkbox" value="8"/>
+						    <span class="form-check-label">
+						        {{__('categorias.experticia.8')}}
+						    </span>
+						</label>
+						<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
+						    <input @if(auth()->user()->experticia & 16) checked @endif name="experticia[]" class="form-check-input" type="checkbox" value="16"/>
+						    <span class="form-check-label">
+								{{__('categorias.experticia.16')}}
+						    </span>
+						</label>
+						<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
+						    <input @if(auth()->user()->experticia & 32) checked @endif name="experticia[]" class="form-check-input" type="checkbox" value="32"/>
+						    <span class="form-check-label">
+								{{__('categorias.experticia.32')}}
+						    </span>
+						</label>
+						<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
+						    <input @if(auth()->user()->experticia & 64) checked @endif name="experticia[]" class="form-check-input" type="checkbox" value="64"/>
+						    <span class="form-check-label">
+								{{__('categorias.experticia.64')}}
+						    </span>
+						</label>
+					</div>
+					<x-select name="experiencia" label="Años de experiencia" placeholder="Seleccione sus Años de experiencia">
+						<x-slot name="values">
+							<option value="">Seleccione sus Años de experiencia</option>
+							<option @if(auth()->user()->experiencia == "1") selected @endif value="1">{{__('categorias.experiencia.1')}}</option>
+							<option @if(auth()->user()->experiencia == "5") selected @endif value="5">{{__('categorias.experiencia.5')}}</option>
+							<option @if(auth()->user()->experiencia == "10") selected @endif value="10">{{__('categorias.experiencia.10')}}</option>
+							<option @if(auth()->user()->experiencia == "mas") selected @endif value="mas">{{__('categorias.experiencia.mas')}}</option>
+						</x-slot>
+					</x-select>
+					<x-select name="fundador" label="¿Ha sido fundador de alguna compañia?" placeholder="Seleccione si ha sido fundador de una compañia">
+						<x-slot name="values">
+							<option value="">Seleccione si ha sido fundador de una compañia</option>
+							<option @if(auth()->user()->fundador == "si") selected @endif value="si">Si</option>
+							<option @if(auth()->user()->fundador == "no") selected @endif value="no">No</option>
+						</x-slot>
+					</x-select>					
+						<x-input  name="precio" label="Valor de la oferta" placeholder="Ingresa valor de la oferta" :required="false" :value="auth()->user()->precio"/>
+					@elseif (auth()->user()->perfil == 'mentores')
 					<x-select name="experiencia" label="Años de experiencia" placeholder="Seleccione sus Años de experiencia">
 						<x-slot name="values">
 							<option value="">Seleccione sus Años de experiencia</option>

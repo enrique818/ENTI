@@ -240,8 +240,8 @@
 						</label>
 					</div>
 				@endif
-				@if($user->perfil == 'mentores' || $user->perfil == 'expertos')
-					@if($user->experiencia != '')
+				@if($user->perfil == 'expertos')
+				@if($user->experiencia != '')
 					<div class="mt-4">
 						<h3 class="text-muted">Años de experiencia</h3>
 						<p class="fw-bolder">{{$user->experiencia}}</p>
@@ -258,6 +258,71 @@
 						<h3 class="text-muted">El valor ofertado es:</h3>
 						<p class="fw-bolder">{{$user->precio}}</p>
 					</div>
+					@endif
+					<div class="row px-3">
+						<h5>Tipo de experticia</h5>
+						<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
+						    <input @if($user->experticia & 1) checked @endif name="experticia[]" class="form-check-input" type="checkbox" value="1"/>
+						    <span class="form-check-label">
+						        {{__('categorias.experticia.1')}}
+						    </span>
+						</label>
+						<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
+						    <input @if($user->experticia & 2) checked @endif name="experticia[]" class="form-check-input" type="checkbox" value="2"/>
+						    <span class="form-check-label">
+						        {{__('categorias.experticia.2')}}
+						    </span>
+						</label>
+						<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
+						    <input @if($user->experticia & 4) checked @endif name="experticia[]" class="form-check-input" type="checkbox" value="4"/>
+						    <span class="form-check-label">
+								{{__('categorias.experticia.4')}}
+						    </span>
+						</label>
+						<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
+						    <input @if($user->experticia & 8) checked @endif name="experticia[]" class="form-check-input" type="checkbox" value="8"/>
+						    <span class="form-check-label">
+								{{__('categorias.experticia.8')}}
+						    </span>
+						</label>
+						<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
+						    <input @if($user->experticia & 16) checked @endif name="experticia[]" class="form-check-input" type="checkbox" value="16"/>
+						    <span class="form-check-label">
+						        {{__('categorias.experticia.16')}}
+						    </span>
+						</label>
+						<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
+						    <input @if($user->experticia & 32) checked @endif name="experticia[]" class="form-check-input" type="checkbox" value="32"/>
+						    <span class="form-check-label">
+								{{__('categorias.experticia.32')}}
+						    </span>
+						</label>
+						<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
+						    <input @if($user->experticia & 64) checked @endif name="experticia[]" class="form-check-input" type="checkbox" value="64"/>
+						    <span class="form-check-label">
+								{{__('categorias.experticia.64')}}
+						    </span>
+						</label>
+					</div>
+				@endif
+				@if($user->perfil == 'mentores')
+					@if($user->experiencia != '')
+					<div class="mt-4">
+						<h3 class="text-muted">Años de experiencia</h3>
+						<p class="fw-bolder">{{$user->experiencia}}</p>
+					</div>
+					@endif
+					@if($user->fundador != '')
+					<div class="mt-4">
+						<h3 class="text-muted">El usuario ha sido Fundador de Compañia</h3>
+						<p class="fw-bolder">{{$user->fundador}}</p>
+					</div>
+					@endif
+					@if($user->precio != '')
+					<div class="mt-4">
+						<h3 class="text-muted">El valor ofertado es:</h3>
+						<p class="fw-bolder">{{$user->precio}}</p>
+			       </div>
 					@endif
 				@endif
 				@if($user->perfil == 'inversionista')

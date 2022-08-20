@@ -509,6 +509,51 @@
 								    </span>
 								</label>
 							</div>
+							<div class="row px-3" id="experticiacontenedor">
+								<h5>Tipo de Experticia (puedes seleccionar mas de una opción)</h5>
+								<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
+								    <input name="experticia[]" class="form-check-input" type="checkbox" value="1"/>
+								    <span class="form-check-label">
+										{{__('categorias.experticia.1')}}
+								    </span>
+								</label>
+								<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
+								    <input name="experticia[]" class="form-check-input" type="checkbox" value="2"/>
+								    <span class="form-check-label">
+								        {{__('categorias.experticia.2')}}
+								    </span>
+								</label>
+								<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
+								    <input name="experticia[]" class="form-check-input" type="checkbox" value="4"/>
+								    <span class="form-check-label">
+										{{__('categorias.experticia.4')}}
+								    </span>
+								</label>
+								<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
+								    <input name="experticia[]" class="form-check-input" type="checkbox" value="8"/>
+								    <span class="form-check-label">
+										{{__('categorias.experticia.8')}}
+								    </span>
+								</label>
+								<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
+								    <input name="experticia[]" class="form-check-input" type="checkbox" value="16"/>
+								    <span class="form-check-label">
+										{{__('categorias.experticia.16')}}
+								    </span>
+								</label>
+								<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
+								    <input name="experticia[]" class="form-check-input" type="checkbox" value="32"/>
+								    <span class="form-check-label">
+										{{__('categorias.experticia.32')}}
+								    </span>
+								</label>
+								<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
+								    <input name="experticia[]" class="form-check-input" type="checkbox" value="64"/>
+								    <span class="form-check-label">
+										{{__('categorias.experticia.64')}}
+								    </span>
+								</label>
+							</div>
 							<x-select name="seguidores" label="Número de seguidores" placeholder="Seleccione su número de seguidores">
 								<x-slot name="values">
 									<option value="">Seleccione su número de seguidores</option>
@@ -583,6 +628,7 @@
 	let formacioncontenedor = document.getElementById('formacioncontenedor');
 	let inp_seguidores = document.getElementById('inp_seguidores');
 	let plataformacontenedor = document.getElementById('plataformacontenedor');
+	let experticiacontenedor = document.getElementById('experticiacontenedor');
 
 	next.addEventListener('click', () => {
 		primero.classList.add('d-none');
@@ -629,6 +675,9 @@
 	 $('#plataformacontenedor input[type="checkbox"]').change(() => {
 		buscar();
 	});
+	$('#experticiacontenedor input[type="checkbox"]').change(() => {
+		buscar();
+	});
 
 	$('input[type=radio][name=perfil]').change(function() {
 		setFiltros(this.value);
@@ -652,12 +701,14 @@
 		} else {
 			capitalcontenedor.classList.add('d-none');
 		}
-		if (value == 'mentores' || value == 'expertos') {
+		if (value == 'expertos' || value == 'mentores') {
 			inp_experiencia.classList.remove('d-none');
 			inp_fundador.classList.remove('d-none');
+			experticiacontenedor.classList.remove('d-none');
 		} else {
 			inp_experiencia.classList.add('d-none');
 			inp_fundador.classList.add('d-none');
+			experticiacontenedor.classList.add('d-none');	
 		}
 		if (value == 'inversionista') {
 			formacioncontenedor.classList.remove('d-none');
@@ -671,7 +722,7 @@
 			inp_seguidores.classList.add('d-none');
 			plataformacontenedor.classList.add('d-none');
 		}
-		if (value == 'startup' || value == 'influencer' || value == 'expertos') {
+		if (value == 'startup' || value == 'influencer') {
 			inp_industria_id.classList.remove('d-none');
 		} else {
 			inp_industria_id.classList.add('d-none');
