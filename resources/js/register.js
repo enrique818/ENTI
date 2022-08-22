@@ -100,9 +100,9 @@ var KTCreateAccount = function () {
 				inputEstado.classList.add('d-none');
 			}
 
-			if (perfil == 'startup' || perfil == 'mentores' || perfil == 'firma') {
+			if (perfil == 'startup' || perfil == 'firma') {
 				inputIndustria.classList.remove('d-none');
-			} else if (perfil == 'inversionista' || perfil == 'expertos' || perfil == 'influencer') {
+			} else if (perfil == 'inversionista' || perfil == 'expertos' || perfil == 'influencer' || perfil == 'mentores') {
 				inputIndustria.classList.add('d-none');
 			}
 

@@ -129,7 +129,7 @@
 						    </span>
 						</x-slot>
 					</x-inputgroup>
-					@if(auth()->user()->perfil == 'startup' || auth()->user()->perfil == 'firma' || auth()->user()->perfil == 'mentores')
+					@if(auth()->user()->perfil == 'startup' || auth()->user()->perfil == 'firma')
 					<x-select name="industria_id" label="Industria/Sector" placeholder="Selecciona la industria/sector">
 						<x-slot name="values">
 							@foreach($industrias??[] as $v => $d)

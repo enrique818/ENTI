@@ -655,7 +655,6 @@
 													<option value="no">No</option>
 												</x-slotvalues>
 											</x-select>
-											<x-input name="precio" label="Valor oferta" placeholder="Ingrese valor de la oferta" />
 										</div>
 										<div id="influencercont">
 											<x-input type="number" name="engagement" label="Ratio de Engagement" placeholder="Ingresa el ratio de engagement" :required="false"/>

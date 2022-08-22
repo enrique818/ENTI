@@ -970,9 +970,9 @@ var KTCreateAccount = function () {
 
 
 
-      if (perfil == 'startup' || perfil == 'mentores'  || perfil == 'influencer') {
+      if (perfil == 'startup' || perfil == 'influencer') {
         inputIndustria.classList.remove('d-none');
-      } else if (perfil == 'inversionista' || perfil == 'expertos' || perfil == 'firma') {
+      } else if (perfil == 'inversionista' || perfil == 'expertos' || perfil == 'firma'  || perfil == 'mentores' ) {
         inputIndustria.classList.add('d-none');
       }
 

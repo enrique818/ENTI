@@ -709,7 +709,7 @@
 			inp_experiencia.classList.add('d-none');
 			inp_fundador.classList.add('d-none');
 			experticiacontenedor.classList.add('d-none');	
-		}
+		}		
 		if (value == 'inversionista') {
 			formacioncontenedor.classList.remove('d-none');
 		} else {
