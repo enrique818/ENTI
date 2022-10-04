@@ -10,6 +10,7 @@ use App\Http\Requests\ChangePasswordRequest;
 use App\Models\Industria;
 use App\Models\User;
 use App\Models\Experticia;
+use App\Models\oferr;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -122,7 +123,9 @@ class UserController extends Controller
         }
 
         $seguidores = $request->input('seguidores');
-        $precio = $request->input('precio');    
+        $precio = $request->input('precio'); 
+        $descripcion = $request->input('descripcion');    
+        $contacto = $request->input('contacto');   
         $equipo = $request->input('equipo');   
         $ventas = $request->input('ventas');
         $capital_institucional = $request->input('capital_institucional');
@@ -395,13 +398,18 @@ class UserController extends Controller
             $data['experticia'] += $value;
         }
         
-        $precio = $request->input('precio');
+        $precio = $request->input('precio');    
+        $descripcion = $request->input('descripcion');    
+        $plazo = $request->input('plazo');
+        $descripcion_proyecto = $request->input('descripcion_proyecto');
+        $plazo_oferta = $request->input('plazo_oferta');
         
         $user->fill($data)->save();
         return response()->json([
             'message' => 'Los datos se han modificado correctamente'
         ]);
     }
+   
 
     public function show(User $user)
     {
@@ -470,14 +478,29 @@ class UserController extends Controller
         return $this->show(auth()->user());
     }
 
-    public function cursos()
+    public function cursos(User $user)
     {
-        return view('template.panel.cursos.mine');
+        return view('template.panel.cursos.mine', ['user' =>$user]);
+    }
+    public function proposedprojects (User $user)
+    {
+        return view('template.panel.proyectos.proposed',['user' =>$user]);
+    }
+
+    public function offersreceived(User $user)
+    {
+        return view('template.panel.proyectos.offers',['user' =>$user]);       
+    
+    }
+    
+    public function proyectos(User $user)
+    {
+        return view('template.panel.proyectos.march',['user' =>$user]);
     }
 
     public function buscarCursos()
     {
-        return view('template.panel.cursos.search');
+        return view('template.panel.cursos.course');
     }
 
     public function alianzas()
@@ -485,23 +508,23 @@ class UserController extends Controller
         return view('template.panel.alianzas.search');
     }
 
-    public function conexiones()
+    public function conexiones(User $user)
     {
         $industrias = [];
         foreach (Industria::orderBy('nombre')->get() as $industria) {
             $industrias[$industria->id] = $industria->nombre;
         }
-        return view('template.panel.conexiones.search', ['industrias' => $industrias]);
+        return view('template.panel.conexiones.search', ['industrias' => $industrias,'user' =>$user]);
     }
 
-    public function misConexiones()
+    public function misConexiones(User $user)
     {
-        return view('template.panel.conexiones.connect');
+        return view('template.panel.conexiones.connect', ['user' =>$user]);
     }
 
-    public function misConexionesChat()
+    public function misConexionesChat(User $user)
     {
-        return view('template.panel.conexiones.own');
+        return view('template.panel.conexiones.own', ['user' =>$user]);
     }
 
     

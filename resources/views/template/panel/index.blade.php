@@ -221,44 +221,44 @@
 						<h5>Tipo de Experticia (puedes seleccionar mas de una opción)</h5>
 						<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
 						    <input @if(auth()->user()->experticia & 1) checked @endif name="experticia[]" class="form-check-input" type="checkbox" value="1"/>
-						    <span class="form-check-label">
+						    <span class="form-check">
 						        {{__('categorias.experticia.1')}}
 						    </span>
 						</label>
 						<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
 						    <input @if(auth()->user()->experticia & 2) checked @endif name="experticia[]" class="form-check-input" type="checkbox" value="2"/>
-						    <span class="form-check-label">
+						    <span class="form-check">
 								{{__('categorias.experticia.2')}}
 						    </span>
 						</label>
 						<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
 						    <input @if(auth()->user()->experticia & 4) checked @endif name="experticia[]" class="form-check-input" type="checkbox" value="4"/>
-						    <span class="form-check-label">
+						    <span class="form-check">
 								{{__('categorias.experticia.4')}}
 
 						    </span>
 						</label>
 						<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
 						    <input @if(auth()->user()->experticia & 8) checked @endif name="experticia[]" class="form-check-input" type="checkbox" value="8"/>
-						    <span class="form-check-label">
+						    <span class="form-check">
 						        {{__('categorias.experticia.8')}}
 						    </span>
 						</label>
 						<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
 						    <input @if(auth()->user()->experticia & 16) checked @endif name="experticia[]" class="form-check-input" type="checkbox" value="16"/>
-						    <span class="form-check-label">
+						    <span class="form-check">
 								{{__('categorias.experticia.16')}}
 						    </span>
 						</label>
 						<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
 						    <input @if(auth()->user()->experticia & 32) checked @endif name="experticia[]" class="form-check-input" type="checkbox" value="32"/>
-						    <span class="form-check-label">
+						    <span class="form-check">
 								{{__('categorias.experticia.32')}}
 						    </span>
 						</label>
 						<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
 						    <input @if(auth()->user()->experticia & 64) checked @endif name="experticia[]" class="form-check-input" type="checkbox" value="64"/>
-						    <span class="form-check-label">
+						    <span class="form-check">
 								{{__('categorias.experticia.64')}}
 						    </span>
 						</label>

@@ -65,7 +65,7 @@
 						<div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
 							<img src="{{asset($user->img)}}" alt="image" />
 							<div class="d-flex my-1">
-								<a href="{{route('edit-perfil')}}"  class="btn btn-sm btn-light-danger" style="width: 100%">Editar Perfil</a>
+								<a href="{{route('edit-perfil', ['user' => $user->id])}}"  class="btn btn-sm btn-light-danger" style="width: 100%">Editar Perfil</a>
 							</div>
 													<!-- <div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-white h-20px w-20px"></div> -->
 						</div>
@@ -82,6 +82,7 @@
 									{{$user->rol}}
 								</span>
 								</div>
+					
 								<div class="d-flex flex-wrap fw-bold fs-6 mb-4 pe-2">
 									<span class="d-flex align-items-center text-dark mb-2 me-2">
 										<span class="svg-icon svg-icon-4 me-1 svg-icon-gray-600"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -148,9 +149,6 @@
 											<div class="fs-2 fw-bolder" data-kt-countup="true" data-kt-countup-value="0" data-kt-countup-prefix="">0</div>
 										</div>
 										<div class="fw-bold fs-6 text-gray-400">Cursos completados</div>
-
-
-
 									</div>
 									@if($user->perfil == 'startup')
 									<div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
@@ -163,16 +161,6 @@
 						</div>
 					</div>
 				</div>
-				@if($user->perfil == 'startup')
-				<div class="d-flex my-1">
-					<a href=""  class="btn btn-sm btn-light-danger" style="width: 18%">Proyectos en Marcha</a>
-				</div>
-				@endif
-				@if($user->perfil == 'mentores' || $user->perfil == 'expertos')
-				<div class="d-flex my-1">
-					<a href=""  class="btn btn-sm btn-light-danger" style="width: 18%">Proyectos en Marcha</a>
-				</div>
-				@endif
 				@if($user->descripcion != '')
 				<div class="mt-4">
 					<h3 class="text-muted">Acerca de mi</h3>
@@ -260,7 +248,7 @@
 					</div>
 					@endif
 					<div class="row px-3">
-						<h5>Tipo de experticia</h5>
+						<h3 class="text-muted">Tipo de experticia</h3>
 						<label class="form-check form-check-custom form-check-solid  form-check-sm mb-2">
 						    <input @if($user->experticia & 1) checked @endif name="experticia[]" class="form-check-input" type="checkbox" value="1"/>
 						    <span class="form-check-label">

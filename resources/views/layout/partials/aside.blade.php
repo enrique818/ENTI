@@ -12,8 +12,7 @@
 												</span>
 												<span class="menu-title">Mis datos</span>
 											</a>
-										</div>
- --}}
+										</div> --}}                               
 										<div class="menu-item">
 											<a class="menu-link @if(Route::is('panel')) active @endif" href="{{route('panel')}}">
 												<span class="menu-icon">
@@ -22,13 +21,44 @@
 												<span class="menu-title">Mi perfil</span>
 											</a>
 										</div>
+										@if(auth()->user()->perfil == 'expertos' || auth()->user()->isAdmin)										
+										<div class="menu-item">
+											<a class="menu-link @if(Route::is('user.offers')) active @endif" href="{{route('user.offers', ['user' => $user->id])}}">
+
+												<span class="menu-icon">
+													<i class="fas fa-comment-dollar"></i>
+												</span>
+												<span class="menu-title">Ofertas recibidas</span>
+											</a>
+										</div>
+										@endif
+										@if(auth()->user()->perfil == 'startup' || auth()->user()->isAdmin)
+										<div class="menu-item">
+											<a class="menu-link @if(Route::is('user.proposed')) active @endif" href="{{route('user.proposed', ['user' => $user->id])}}">
+												<span class="menu-icon">
+													<i class="fas fa-lightbulb"></i>
+												</span>
+												<span class="menu-title">Proyectos propuestos</span>
+											</a>
+										</div>
+										@endif
+										@if(auth()->user()->perfil == 'expertos' || auth()->user()->perfil == 'startup' || auth()->user()->isAdmin)
+										<div class="menu-item">
+											<a class="menu-link @if(Route::is('user.march')) active @endif" href="{{route('user.march', ['user' => $user->id])}}">
+												<span class="menu-icon">
+													<i class="fas fa-hands-helping"></i>
+												</span>
+												<span class="menu-title">Proyectos en marcha</span>
+											</a>
+										</div>
+										@endif
 										<div class="menu-item">
 											<div class="menu-content pt-8 pb-2">
 												<span class="menu-section text-muted text-uppercase fs-8 ls-1">Conexiones</span>
 											</div>
-										</div>
+										</div>										
 										<div class="menu-item">
-											<a class="menu-link @if(Route::is('conexiones.search')) active @endif" href="{{route('conexiones.search')}}">
+											<a class="menu-link @if(Route::is('user.search')) active @endif" href="{{route('user.search', ['user' => $user->id])}}">
 												<span class="menu-icon">
 													<i class="fas fa-hand-holding"></i>
 												</span>
@@ -36,7 +66,7 @@
 											</a>
 										</div>
 										<div class="menu-item">
-											<a class="menu-link @if(Route::is('conexiones.own')) active @endif" href="{{route('conexiones.own')}}">
+											<a class="menu-link @if(Route::is('user.own')) active @endif" href="{{route('user.own', ['user' => $user->id])}}">
 												<span class="svg-icon svg-icon-3 me-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 												<path d="M8 22C7.4 22 7 21.6 7 21V9C7 8.4 7.4 8 8 8C8.6 8 9 8.4 9 9V21C9 21.6 8.6 22 8 22Z" fill="black"/>
 												<path opacity="0.3" d="M4 15C3.4 15 3 14.6 3 14V6C3 5.4 3.4 5 4 5C4.6 5 5 5.4 5 6V14C5 14.6 4.6 15 4 15ZM13 19V3C13 2.4 12.6 2 12 2C11.4 2 11 2.4 11 3V19C11 19.6 11.4 20 12 20C12.6 20 13 19.6 13 19ZM17 16V5C17 4.4 16.6 4 16 4C15.4 4 15 4.4 15 5V16C15 16.6 15.4 17 16 17C16.6 17 17 16.6 17 16ZM21 18V10C21 9.4 20.6 9 20 9C19.4 9 19 9.4 19 10V18C19 18.6 19.4 19 20 19C20.6 19 21 18.6 21 18Z" fill="black"/>
@@ -45,7 +75,7 @@
 											</a>
 										</div>
 										<div class="menu-item">
-											<a class="menu-link @if(Route::is('conexiones.chat')) active @endif" href="{{route('conexiones.chat')}}">
+											<a class="menu-link @if(Route::is('user.chat')) active @endif" href="{{route('user.chat', ['user' => $user->id])}}">
 												<span class="svg-icon svg-icon-3 me-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 												<path d="M8 22C7.4 22 7 21.6 7 21V9C7 8.4 7.4 8 8 8C8.6 8 9 8.4 9 9V21C9 21.6 8.6 22 8 22Z" fill="black"/>
 												<path opacity="0.3" d="M4 15C3.4 15 3 14.6 3 14V6C3 5.4 3.4 5 4 5C4.6 5 5 5.4 5 6V14C5 14.6 4.6 15 4 15ZM13 19V3C13 2.4 12.6 2 12 2C11.4 2 11 2.4 11 3V19C11 19.6 11.4 20 12 20C12.6 20 13 19.6 13 19ZM17 16V5C17 4.4 16.6 4 16 4C15.4 4 15 4.4 15 5V16C15 16.6 15.4 17 16 17C16.6 17 17 16.6 17 16ZM21 18V10C21 9.4 20.6 9 20 9C19.4 9 19 9.4 19 10V18C19 18.6 19.4 19 20 19C20.6 19 21 18.6 21 18Z" fill="black"/>
@@ -59,7 +89,7 @@
 											</div>
 										</div>
 										<div class="menu-item">
-											<a class="menu-link @if(Route::is('cursos.mine')) active @endif" href="{{route('cursos.mine')}}">
+											<a class="menu-link @if(Route::is('user.mine')) active @endif" href="{{route('user.mine', ['user' => $user->id])}}">
 												<span class="menu-icon">
 													<i class="fas fa-book"></i>
 												</span>

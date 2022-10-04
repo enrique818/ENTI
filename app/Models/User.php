@@ -165,6 +165,10 @@ class User extends Authenticatable
     {
         return $this->perfil == 'admin';
     }
+    public function getIsExpertosAttribute()
+    {
+        return $this->perfil == 'expertos';
+    }
 
     public function connectionsSent()
     {

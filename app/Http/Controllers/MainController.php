@@ -13,6 +13,11 @@ class MainController extends Controller
         return view('template.landing');
     }
 
+    public function projectmarch()
+    {
+        return view('template.panel.proyectos.march');
+    }
+
     public function index(Request $req){
 
         if ( $req->isMethod('post') ) {
